@@ -1,0 +1,19 @@
+{
+    "name":"default",
+    "chef_type":"role",
+    "json_class":"Chef::Role",
+    "description":"Default role for ruby server",
+    "run_list":[
+        "recipe[apt]",
+        "recipe[ruby-packages]",
+        "recipe[rvm::vagrant]",
+        "recipe[rvm::system]"
+    ],
+    "override_attributes":{
+        "rvm":{
+            "vagrant":{
+                "system_chef_solo":"/opt/vagrant_ruby/bin/chef-solo"
+            }
+        }
+    }
+}
